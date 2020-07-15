@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/style.css">
+    <title>Countdown App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="board" class="timeboard">
+            <div class="time">
+                <h4>Days</h4>
+                <p id="dayCount"></p>
+            </div>
+            <div class="time">
+                <h4>Hours</h4>
+                <p id="hourCount"></p>
+            </div>
+            <div class="time">
+                <h4>Minutes</h4>
+                <p id="minuteCount"></p>
+            </div>
+            <div class="time">
+                <h4>Seconds</h4>
+                <p id="secondCount"></p>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="pauseBtn" class="pauseBtn">Pause</button>
+            <button id="resumeBtn" class="resumeBtn">Resume</button>
+            <button id="resetBtn" class="resetBtn">Reset</button>
+
+        </div>
+
+        <div id="modal" class="modal-container">
+            <div class="modal-content">
+                <h4 id="timeMsg"></h4>
+                <p>Days</p>
+                <input id="dayValue" type="number">
+                <p>Hours</p>
+                <input id="hourValue" type="number">
+                <p>Minutes</p>
+                <input id="minuteValue" type="number">
+                <p>Seconds</p>
+                <input id="secondValue" type="number">
+                <button id="begin" class="begin-btn">Begin</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Js/app.js"></script>
+</body>
+
+</html>
