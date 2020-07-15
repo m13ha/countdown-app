@@ -9,6 +9,7 @@ let inputDay = document.getElementById('dayValue'),
     hourHtml = document.getElementById('hourCount'),
     minuteHtml = document.getElementById('minuteCount'),
     secondHtml = document.getElementById('secondCount'),
+    controls = document.getElementById('controls'),
     msgAlert = document.getElementById('timeMsg'),
     // units of time
     days,
@@ -114,6 +115,7 @@ let countDownApp = {
                 minutes = inputMinute.valueAsNumber;
                 seconds = inputSecond.valueAsNumber;
                 timerContainer.style.display = "flex";
+                controls.style.display = "block";
                 this.startCount();
             }
         } else {
@@ -172,6 +174,7 @@ let countDownApp = {
                 minuteHtml.innerText = "00:"
                 secondHtml.innerText = "00"
                 timerContainer.style.display = "none";
+                controls.style.display = "none";
                 modal.style.display = "flex";
 
             }
