@@ -101,7 +101,9 @@ let countDownApp = {
 
     checkValues: function () {
         // make sure one of the values is greater than zero
-        if (inputDay.value >= 1 || inputHour.value >= 1 || inputMinute.value >= 1 || inputSecond.value >= 1) {
+        if (inputDay.value === "" || inputHour.value === "" || inputMinute.value === "" || inputSecond.value === "") {
+            msgAlert.innerText = "Fields can not be empty or have letters in them";
+        } else if (inputDay.value >= 1 || inputHour.value >= 1 || inputMinute.value >= 1 || inputSecond.value >= 1) {
             // make sure none of the other numbers are less than zero
             if (inputDay.value < 0 || inputHour.value < 0 || inputMinute.value < 0 || inputSecond.value < 0) {
                 inputSecond.value = 0;
