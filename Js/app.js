@@ -111,6 +111,8 @@ let countDownApp = {
                 inputHour.value = 0;
                 inputDay.value = 0;
                 msgAlert.innerText = "NUMBERS CAN NOT BE LESS THAN ZERO";
+            } else if (inputDay.value > 99999 || inputHour.value > 99999 || inputMinute.value > 99999 || inputSecond.value > 99999) {
+                    msgAlert.innerText = "Values can not be greater than 99999";
             } else {
                 days = inputDay.valueAsNumber;
                 hours = inputHour.valueAsNumber;
@@ -178,6 +180,8 @@ let countDownApp = {
                 timerContainer.style.display = "none";
                 controls.style.display = "none";
                 modal.style.display = "flex";
+                resumeBtn.style.display = "none";
+                pauseBtn.style.display = "inline";
 
             }
 
