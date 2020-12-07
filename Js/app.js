@@ -118,6 +118,9 @@ let countDownApp = {
                 hours = inputHour.valueAsNumber;
                 minutes = inputMinute.valueAsNumber;
                 seconds = inputSecond.valueAsNumber;
+
+                ({ newDays: days, newHours: hours, newMinutes: minutes, newSeconds: seconds } 
+                	= countDownApp.normalizeValues(days, hours, minutes, seconds));
                 timerContainer.style.display = "flex";
                 controls.style.display = "block";
                 this.startCount();
@@ -129,6 +132,28 @@ let countDownApp = {
             inputDay.value = 0;
             msgAlert.innerText = "Please enter a proper value";
         };
+    },
+
+    normalizeValues: function(days, hours, minutes, seconds) {
+    	const secsInADay = 86400;		// 1day * 24hours * 60mins * 60secs
+    	const secsInAnHour = 3600;		// 1hour * 60mins * 60secs
+    	const secsInAMinute = 60;		// 1minute * 60secs
+
+    	let newDays = 0, newHours = 0, newMinutes = 0, newSeconds = 0, remainder = 0;
+    	
+    	const totalTimeInSecs = (days * secsInADay) + (hours * secsInAnHour) +
+    							(minutes * secsInAMinute) + seconds;
+    	newDays = Math.floor(totalTimeInSecs/secsInADay);
+    	remainder = totalTimeInSecs % secsInADay;
+
+    	newHours = Math.floor(remainder/secsInAnHour);
+    	remainder = remainder % secsInAnHour;
+
+    	newMinutes = Math.floor(remainder/secsInAMinute);
+    	remainder = remainder % secsInAMinute;
+
+    	newSeconds = remainder;
+    	return { newDays, newHours, newMinutes, newSeconds };
     },
 
     pauseCount: function () {
